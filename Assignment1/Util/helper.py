@@ -22,6 +22,10 @@ def test_correctness(runs, method, size=15, width=10):
                 print('Output Bubble:', sa.bubble_sort(input_list))
             case 'insertion':
                 print('Output Insertion:', sa.insertion_sort(input_list))
+            case 'merge':
+                print('Output Merge:', sa.merge_sort(input_list))
+            case 'quick':
+                print('Output Quick:', sa.quick_sort(input_list))
             case _:
                 print('Invalid Method')
         print()
@@ -43,6 +47,10 @@ def get_time_duration(sz, method):
             sa.bubble_sort(lst)
         case 'insertion':
             sa.insertion_sort(lst)
+        case 'merge':
+            sa.merge_sort(lst)
+        case 'quick':
+            sa.quick_sort(lst)
         case _:
             print('Invalid Method')
     duration = time.time() - before

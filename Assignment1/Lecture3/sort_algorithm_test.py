@@ -78,4 +78,41 @@ def compare_algorithm(runs, start, stop, step):
     plt.show()
 
 
+def merge_vs_quick(runs, start, stop, step):
+    m_size, m_duration = helper.repeated_runs(
+        runs,
+        'merge',
+        start,
+        stop,
+        step
+        )
+    q_size, q_duration = helper.repeated_runs(
+        runs,
+        'quick',
+        start,
+        stop,
+        step
+        )
+    plt.plot(
+        m_size,
+        m_duration,
+        marker='+',
+        linestyle='none',
+        label='merge'
+        )
+    plt.plot(
+        q_size,
+        q_duration,
+        marker='x',
+        linestyle='none',
+        label='quick'
+        )
+    plt.xlabel(f'list sizes in range {start} to {stop}')
+    plt.ylabel(f'Average run times of {runs} runs with random lists')
+    plt.title('Running times for merge and quick sorting algorithms')
+    plt.legend(loc='best')
+    plt.show()
+
+
 compare_algorithm(3, 2000, 10000, 1000)
+merge_vs_quick(5, 10000, 30000, 1000)

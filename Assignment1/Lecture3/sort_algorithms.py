@@ -40,3 +40,39 @@ def insertion_sort(array):
         result[j + 1] = key
 
     return result
+
+
+def merge_sort(array):
+    if len(array) <= 1:
+        return array[:]
+
+    mid = len(array) // 2
+    left = merge_sort(array[:mid])
+    right = merge_sort(array[mid:])
+    result = []
+    i = j = 0
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+
+    result.extend(left[i:])
+    result.extend(right[j:])
+
+    return result
+
+
+def quick_sort(array):
+    if len(array) <= 1:
+        return array[:]
+
+    pivot = array[-1]
+
+    less = [x for x in array if x < pivot]
+    equal = [x for x in array if x == pivot]
+    greater = [x for x in array if x > pivot]
+
+    return quick_sort(less) + equal + quick_sort(greater)
