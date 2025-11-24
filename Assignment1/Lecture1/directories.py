@@ -6,7 +6,7 @@ def print_files(dir_path):
         return print('Path does not exist')
     all = os.listdir(dir_path)
     for name in all:
-        if not name.startswith('.'):
+        if not (name.startswith('.') or name.startswith('_')):
             full_path = os.path.join(dir_path, name)
             if os.path.isdir(full_path):
                 print_files(full_path)

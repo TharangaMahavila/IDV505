@@ -33,6 +33,7 @@ helper.test_correctness(3, 'pointers')
 for sz in range(5000, 29000, 1600):
     print(f'{sz} - {helper.get_time_duration(sz, 'pointers')}')
 
+helper.separate_runs(3, 'pointers', 5000, 29000, 1600, True)
 p_avg_szs, p_avg_duration = helper.repeated_runs(
     3,
     'pointers',
@@ -56,6 +57,7 @@ helper.test_correctness(3, 'caching')
 for sz in range(2500, 13750, 750):
     print(f'{sz} - {helper.get_time_duration(sz, 'caching')}')
 
+helper.separate_runs(3, 'caching', 2500, 13750, 750, True)
 c_avg_szs, c_avg_duration = helper.repeated_runs(
     3,
     'caching',

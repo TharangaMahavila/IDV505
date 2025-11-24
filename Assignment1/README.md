@@ -19,5 +19,6 @@ This project is licensed under the MIT License — you’re free to use, modify,
 
 ## Author
 Tharanga Mahavila<br>
+https://www.linkedin.com/in/tharanga-mahavila-7b9994199/<br>
 https://github.com/TharangaMahavila<br>
 tharangamahavila@gmail.com
