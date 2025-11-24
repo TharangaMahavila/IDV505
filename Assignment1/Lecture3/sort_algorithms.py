@@ -69,10 +69,26 @@ def quick_sort(array):
     if len(array) <= 1:
         return array[:]
 
-    pivot = array[-1]
+    pivot = array[0]
 
     less = [x for x in array if x < pivot]
     equal = [x for x in array if x == pivot]
     greater = [x for x in array if x > pivot]
 
     return quick_sort(less) + equal + quick_sort(greater)
+
+
+def improved_quick_sort(array):
+    if len(array) <= 1:
+        return array[:]
+
+    first = array[0]
+    last = array[-1]
+    mid = array[len(array)//2]
+    pivot = sorted([first, mid, last])[1]
+
+    less = [x for x in array if x < pivot]
+    equal = [x for x in array if x == pivot]
+    greater = [x for x in array if x > pivot]
+
+    return improved_quick_sort(less) + equal + improved_quick_sort(greater)

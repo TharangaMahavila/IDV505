@@ -26,6 +26,8 @@ def test_correctness(runs, method, size=15, width=10):
                 print('Output Merge:', sa.merge_sort(input_list))
             case 'quick':
                 print('Output Quick:', sa.quick_sort(input_list))
+            case 'improved_quick':
+                print('Output Improved Quick:', sa.improved_quick_sort(input_list))
             case _:
                 print('Invalid Method')
         print()
@@ -51,6 +53,8 @@ def get_time_duration(sz, method):
             sa.merge_sort(lst)
         case 'quick':
             sa.quick_sort(lst)
+        case 'improved_quick':
+            sa.improved_quick_sort(lst)
         case _:
             print('Invalid Method')
     duration = time.time() - before

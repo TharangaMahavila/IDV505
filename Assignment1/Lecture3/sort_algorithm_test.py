@@ -1,5 +1,7 @@
+import time
 import matplotlib.pyplot as plt
 from Util import helper
+from Lecture3 import sort_algorithms as sa
 
 
 def compare_algorithm(runs, start, stop, step):
@@ -114,5 +116,27 @@ def merge_vs_quick(runs, start, stop, step):
     plt.show()
 
 
-compare_algorithm(3, 2000, 10000, 1000)
-merge_vs_quick(5, 10000, 30000, 1000)
+#compare_algorithm(3, 2000, 10000, 1000)
+#merge_vs_quick(5, 10000, 30000, 1000)
+
+# experiment improved quick sort
+def test_quick_sort(array, method):
+    before = time.time()
+    match method:
+        case 'ordinary':
+            sa.quick_sort(array)
+        case 'improved':
+            sa.improved_quick_sort(array)
+    duration = time.time() - before
+    print(f'{method} quick sort time {duration}')
+
+
+# Cannot test more than 1000 because of the maximum recursion depth
+input1 = [x for x in range(995)]
+test_quick_sort(input1, 'ordinary')
+test_quick_sort(input1, 'improved')
+
+print('')
+input2 = [x for x in range(995, 0, -1)]
+test_quick_sort(input2, 'ordinary')
+test_quick_sort(input2, 'improved')
