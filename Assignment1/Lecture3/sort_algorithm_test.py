@@ -1,0 +1,81 @@
+import matplotlib.pyplot as plt
+from Util import helper
+
+
+def compare_algorithm(runs, start, stop, step):
+    s_size, s_duration = helper.repeated_runs(
+        runs,
+        'selection',
+        start,
+        stop,
+        step
+        )
+    b_size, b_duration = helper.repeated_runs(
+        runs,
+        'bubble',
+        start,
+        stop,
+        step
+        )
+    i_size, i_duration = helper.repeated_runs(
+        runs,
+        'insertion',
+        start,
+        stop,
+        step
+        )
+    plt.plot(
+        s_size,
+        s_duration,
+        marker='+',
+        linestyle='none',
+        label='selection'
+        )
+    plt.plot(
+        b_size,
+        b_duration,
+        marker='x',
+        linestyle='none',
+        label='bubble'
+        )
+    plt.plot(
+        i_size,
+        i_duration,
+        marker='*',
+        linestyle='none',
+        label='insertion'
+        )
+    plt.xlabel(f'list sizes in range {start} to {stop}')
+    plt.ylabel(f'Average run times of {runs} runs with random lists')
+    plt.title('Running times for sorting algorithms')
+    plt.legend(loc='best')
+    plt.show()
+
+    s_sizes, s_dur, sm, sk = helper.log_log_with_linear_regression(
+        s_size,
+        s_duration,
+        'selection'
+        )
+    b_sizes, b_dur, bm, bk = helper.log_log_with_linear_regression(
+        b_size,
+        b_duration,
+        'bubble'
+        )
+    i_sizes, i_dur, im, ik = helper.log_log_with_linear_regression(
+        i_size,
+        i_duration,
+        'insertion'
+        )
+
+    plt.scatter(s_sizes, s_dur, marker='x', label=f'selection k={sk}')
+    plt.scatter(b_sizes, b_dur, marker='*', label=f'bubble k={bk}')
+    plt.scatter(i_sizes, i_dur, marker='+', label=f'insertion k={ik}')
+
+    plt.xlabel(f'log of list sizes in range {start} to {stop}')
+    plt.ylabel('Log of sorting times')
+    plt.title('Log Log plots for sorting algorithms')
+    plt.legend(loc='best')
+    plt.show()
+
+
+compare_algorithm(3, 2000, 10000, 1000)
