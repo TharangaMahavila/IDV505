@@ -104,7 +104,9 @@ def repeated_runs(runs_count, method, start, stop, step, show_graph=False):
                 linestyle='none'
                 )
         plt.xlabel(f'list sizes in range {start} to {stop}')
-        plt.ylabel(f'Average of {len(sizes_array)} run times with random lists')
+        plt.ylabel(
+            f'Average of {len(sizes_array)} run times with random lists'
+            )
         plt.title(f'{method}: Execution Time (Repeated Runs)')
         plt.show()
     return average_sizes, average_duration
@@ -124,7 +126,7 @@ def lin_reg(x, y):
     # intercept
     m = (sum_y - k * sum_x) / n
 
-    return round(m,3), round(k,3)
+    return round(m, 3), round(k, 3)
 
 
 def log_log_with_linear_regression(
@@ -145,7 +147,11 @@ def log_log_with_linear_regression(
     xs_fit = [p[0] for p in pairs]
     ys_fit = [p[1] for p in pairs]
     if show_graph:
-        plt.plot(xs_fit, ys_fit, linestyle='-', label=f'Linear fit (k={k:.3f})')
+        plt.plot(
+            xs_fit, ys_fit,
+            linestyle='-',
+            label=f'Linear fit (k={k:.3f})'
+            )
 
         plt.xlabel('Logarithm of list sizes')
         plt.ylabel('Logarithm of time duration')
