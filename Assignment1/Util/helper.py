@@ -27,7 +27,8 @@ def test_correctness(runs, method, size=15, width=10):
             case 'quick':
                 print('Output Quick:', sa.quick_sort(input_list))
             case 'improved_quick':
-                print('Output Improved Quick:', sa.improved_quick_sort(input_list))
+                print('Output Improved Quick:',
+                      sa.improved_quick_sort(input_list))
             case _:
                 print('Invalid Method')
         print()

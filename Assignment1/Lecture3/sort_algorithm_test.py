@@ -116,8 +116,9 @@ def merge_vs_quick(runs, start, stop, step):
     plt.show()
 
 
-#compare_algorithm(3, 2000, 10000, 1000)
-#merge_vs_quick(5, 10000, 30000, 1000)
+compare_algorithm(3, 2000, 10000, 1000)
+merge_vs_quick(5, 10000, 30000, 1000)
+
 
 # experiment improved quick sort
 def test_quick_sort(array, method):
